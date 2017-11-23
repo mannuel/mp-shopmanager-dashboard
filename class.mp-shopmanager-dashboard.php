@@ -161,7 +161,11 @@ function poweredby( $atts ) {
 				<div class="wpb_wrapper">
 					<div class="wpb_single_image wpb_content_element vc_align_left">
 						<figure class="wpb_wrapper vc_figure">
-							<div class="vc_single_image-wrapper vc_box_border_grey"><img class="vc_single_image-img" src="<?php echo $marq_logo; ?>" width="47" height="47" alt="marq-logo" title="marq-logo"></div>
+							<div class="vc_single_image-wrapper vc_box_border_grey">
+								<a href="http://marqcreative.com" target="_blank">
+									<img class="vc_single_image-img" src="<?php echo $marq_logo; ?>" width="47" height="47" alt="marq-logo" title="marq-logo">
+								</a>
+							</div>
 						</figure>
 					</div>
 				</div>
