@@ -127,17 +127,17 @@ function poweredby( $atts ) {
 
 	switch ($a['color']) {
 		case 'color':
-			$marq_logo       = "http://marqcreative.com/wp-content/uploads/2017/10/marq-logo.png";
+			$marq_logo       = MPSMD__PLUGIN_DIR_URL . "assets/img/marq-logo.png";
 			$marq_color_text = "#444";
 			break;
 
 		case 'white':
-			$marq_logo       = "http://marqcreative.com/wp-content/uploads/2017/11/marq-logo_w.png";
+			$marq_logo       = MPSMD__PLUGIN_DIR_URL . "assets/img/marq-logo_w.png";
 			$marq_color_text = "#fff";
 			break;
 		
 		default:
-			$marq_logo       = "http://marqcreative.com/wp-content/uploads/2017/10/marq-logo.png";
+			$marq_logo       = MPSMD__PLUGIN_DIR_URL . "assets/img/marq-logo.png";
 			$marq_color_text = "#444";
 			break;
 	}

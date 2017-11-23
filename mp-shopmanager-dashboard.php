@@ -29,6 +29,8 @@ defined( 'ABSPATH' ) or exit;
 
 define( 'MPSMD__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
+define( 'MPSMD__PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
+
 require_once( MPSMD__PLUGIN_DIR . 'class.mp-shopmanager-dashboard.php' );
 
 add_action( 'init', array( 'mpsmd', 'init' ) );
