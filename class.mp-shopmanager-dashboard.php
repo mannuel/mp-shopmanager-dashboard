@@ -20,12 +20,12 @@ class mpsmd {
 	 */
 	private static function init_hooks() {
 		self::$initiated = true;
+		add_filter( 'login_redirect',  array( 'mpsmd', 'admin_default_page' ) );
 		add_action( 'admin_enqueue_scripts', array( 'mpsmd', 'admin_scripts' ) );
 		add_action( 'admin_menu', array( 'mpsmd', 'remove_menus' ) );
 		add_filter( 'custom_menu_order', array( 'mpsmd', 'reorder_admin_menu' ) );
 		add_filter( 'menu_order', array( 'mpsmd', 'reorder_admin_menu' ) );
 		add_action( 'wp_dashboard_setup', array( 'mpsmd', 'remove_dashboard_widgets' ) );
-		add_filter( 'login_redirect',  array( 'mpsmd', 'admin_default_page' ) );
 		add_action( 'gettext', array( 'mpsmd', 'rename_header_to_logo' ), 10, 3 );
 	}
 
@@ -113,4 +113,61 @@ class mpsmd {
 
 		return $translated;
 	}
+
+
 } //class mpsmd end
+
+/**
+ * Pwered by shortcode
+ */
+function poweredby( $atts ) {
+	$a = shortcode_atts( array(
+		'color' => 'color'
+	), $atts );
+
+	switch ($a['color']) {
+		case 'color':
+			$marq_logo       = "http://marqcreative.com/wp-content/uploads/2017/10/marq-logo.png";
+			$marq_color_text = "#444";
+			break;
+
+		case 'white':
+			$marq_logo       = "http://marqcreative.com/wp-content/uploads/2017/11/marq-logo_w.png";
+			$marq_color_text = "#fff";
+			break;
+		
+		default:
+			$marq_logo       = "http://marqcreative.com/wp-content/uploads/2017/10/marq-logo.png";
+			$marq_color_text = "#444";
+			break;
+	}
+	?>
+	<div class="vc_row wpb_row vc_row-fluid">
+		<div class="text-right wpb_column vc_column_container vc_col-sm-6 vc_col-xs-7">
+			<div class="vc_column-inner ">
+				<div class="wpb_wrapper">
+					<div class="wpb_text_column wpb_content_element">
+						<div class="wpb_wrapper">
+							<p style="color: <?php echo $marq_color_text; ?>">Powered by<br>
+							<a style="font-weight: bold; font-size: 1.5em; color: <?php echo $marq_color_text; ?>" href="http://marqcreative.com" target="_blank">MarQ Creative</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="wpb_column vc_column_container vc_col-sm-6 vc_col-xs-5">
+			<div class="vc_column-inner ">
+				<div class="wpb_wrapper">
+					<div class="wpb_single_image wpb_content_element vc_align_left">
+						<figure class="wpb_wrapper vc_figure">
+							<div class="vc_single_image-wrapper vc_box_border_grey"><img class="vc_single_image-img" src="<?php echo $marq_logo; ?>" width="47" height="47" alt="marq-logo" title="marq-logo"></div>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php
+}
+add_shortcode( 'poweredby', 'poweredby' );
